@@ -87,23 +87,6 @@ function drawDebugInfo(ctx: CanvasRenderingContext2D) {
     10,
     20,
   );
-
-  ctx.fillStyle = "black";
-  ctx.font = "20px Arial";
-  ctx.fillText(
-    `Pressing escape will release the cursor`,
-    10,
-    40,
-  );
-  ctx.fillText(
-    `Cursor is ${
-      canvasW.window.getInputMode("cursor") === "disabled"
-        ? "Captured"
-        : "Released"
-    }`,
-    10,
-    60,
-  );
 }
 
 canvasW.onDraw = (ctx: CanvasRenderingContext2D) => {
