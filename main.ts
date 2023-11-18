@@ -39,13 +39,12 @@ addEventListener("mousemove", (evt) => {
     const ctx = offscreenCanvas.getContext("2d");
     ctx.strokeStyle = "black";
     ctx.lineCap = "round";
-    
+
     ctx.lineWidth = 10;
     ctx.beginPath();
     ctx.moveTo(offset.x, offset.y);
     ctx.lineTo(evt.x, evt.y);
     ctx.stroke();
-
 
     offset = {
       x: evt.x,
