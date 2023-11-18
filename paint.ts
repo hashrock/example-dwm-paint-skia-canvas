@@ -37,12 +37,15 @@ addEventListener("mousemove", (evt) => {
 
   if (offset) {
     const ctx = offscreenCanvas.getContext("2d");
-    ctx.fillStyle = "white";
-    ctx.strokeStyle = "white";
+    ctx.strokeStyle = "black";
+    ctx.lineCap = "round";
+    
+    ctx.lineWidth = 10;
     ctx.beginPath();
     ctx.moveTo(offset.x, offset.y);
     ctx.lineTo(evt.x, evt.y);
     ctx.stroke();
+
 
     offset = {
       x: evt.x,
@@ -77,7 +80,7 @@ addEventListener("mouseup", () => {
 });
 
 function drawDebugInfo(ctx: CanvasRenderingContext2D) {
-  ctx.fillStyle = "white";
+  ctx.fillStyle = "black";
   ctx.font = "20px Arial";
   ctx.fillText(
     `Cursor: ${Cursor.x} ${Cursor.y}`,
@@ -85,7 +88,7 @@ function drawDebugInfo(ctx: CanvasRenderingContext2D) {
     20,
   );
 
-  ctx.fillStyle = "white";
+  ctx.fillStyle = "black";
   ctx.font = "20px Arial";
   ctx.fillText(
     `Pressing escape will release the cursor`,
@@ -111,16 +114,6 @@ canvasW.onDraw = (ctx: CanvasRenderingContext2D) => {
     canvasW.canvas.width,
     canvasW.canvas.height,
   );
-
-  const off = offscreenCanvas.getContext("2d");
-
-  off.fillStyle = "white";
-  off.strokeStyle = "white";
-
-  off.beginPath();
-  off.moveTo(0, 0);
-  off.lineTo(800, 600);
-  off.stroke();
 
   ctx.drawImage(
     offscreenCanvas,
